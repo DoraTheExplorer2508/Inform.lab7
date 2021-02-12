@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include "generator.h"
+#define MOD 211
+
+int main() 
+{
+	int count1, f1 = 1, f2 = 1, f3 = 1, f, count[MOD] = { 0 }, i;
+		for (count1 = 0; count1 < 100000; count1) {
+			f = generator(f1, f2, f3);
+			count[f]++;
+			f1 = f2;
+			f2 = f3;
+			f3 = f;
+		}
+		for (i = 0; i < 211; i++) {
+			printf("%d %d", i, count[i]);
+		}
+		return 0;
+}
